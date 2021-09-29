@@ -1,6 +1,8 @@
-<?php include("database/db.php")  ?>
+<?php
+session_start();
+include("database/db.php")  ?>
 <?php include("functions/create-machine.php") ?>
-<?php include("functions/vending.php") ?>
+<?php include("functions/insert-coin.php") ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -27,12 +29,13 @@
                 <button class="fbutton" value="F03">F03</button>
             </div>
             <div class="coin-buttons">
-                <form action="functions/vending.php" method="POST">
+                <form action="functions/insert-coin.php" method="POST">
                     <input type="submit" value="0.05" name="coin" />
                     <input type="submit" value="0.10" name="coin" />
                     <input type="submit" value="0.25" name="coin" />
                     <input type="submit" value="1" name="coin" />
                 </form>
+                <h3><?php echo $_SESSION["error"] ?></h3>
                 <h3><?php countCoins() ?></h3>
             </div>
         </div>

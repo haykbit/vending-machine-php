@@ -1,5 +1,6 @@
 <?php
 session_start();
+include("../database/db.php");
 
 function updateStock($conn)
 {
@@ -7,42 +8,15 @@ function updateStock($conn)
     $result = $conn->query($sql);
 
     if ($result && $_POST["selector"]) {
-        echo "Stock Updated";
+        $_SESSION["error"] = "";
+        file_put_contents('../utils/json/coins.json', '');
+        header("Location: ../index.php");
     } else {
-        echo "Choose a product";
+        $_SESSION["error"] = "Please choose a product";
+        header("Location: ../index.php");
     }
 }
-
-function insertCoin($coin)
-{
-    $inp = file_get_contents('../utils/json/coins.json');
-    $tempArray = json_decode($inp);
-
-    if ($tempArray) {
-        array_push($tempArray, $coin);
-        $jsonData = json_encode($tempArray);
-    } else {
-        $jsonData = json_encode(array($coin));
-    }
-
-    file_put_contents('../utils/json/coins.json', $jsonData);
-    $inp = file_get_contents('../utils/json/coins.json');
-    $tempArray = json_decode($inp);
-    header("Location: ../index.php");
-}
-
-function countCoins()
-{
-    $inp = file_get_contents('utils/json/coins.json');
-    $tempArray = json_decode($inp);
-    var_dump(array_sum($tempArray));
-}
-
 
 if (isset($_POST["buy_product"])) {
     updateStock($conn);
-}
-
-if (isset($_POST["coin"])) {
-    insertCoin($_POST["coin"]);
 }
