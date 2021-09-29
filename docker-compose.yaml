@@ -1,0 +1,40 @@
+version: "2"
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-server-80
+    command: --default-authentication-plugin=mysql_native_password
+    #working_dir: /application
+    volumes:
+      - ./docker/mysql/data:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=.sweetpwd.
+      - MYSQL_DATABASE=vendingmachine
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=123456
+    ports:
+      - "8082:3306"
+
+  website:
+    container_name: vending-machine
+    build:
+      context: ./
+    volumes:
+      - /Users/haykbit/Desktop/Assembler/pruebas-tecnicas/vending-machine-php/src:/var/www/html
+    ports:
+      - 8000:80
+    depends_on:
+      - mysql
+
+  phpmyadmin:
+    image: phpmyadmin:5.1.0-apache
+    container_name: phpmyadmin
+    restart: unless-stopped
+    ports:
+      - 8200:80
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: user
+      PMA_PASSWORD: 123456
