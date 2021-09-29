@@ -17,12 +17,22 @@
         <div class="product-container">
             <form action="functions/vending.php" method="POST">
                 <?php echo build_table($array); ?>
-                <input type="text" name="selector" id="selector-input" />
+                <input type="text" name="selector" id="selector-input" readonly />
                 <button type="submit" value="Buy" name="buy_product">Buy</button>
             </form>
-            <button class="fbutton" value="F01">F01</button>
-            <button class="fbutton" value="F02">F02</button>
-            <button class="fbutton" value="F03">F03</button>
+            <div>
+                <button class="fbutton" value="F01">F01</button>
+                <button class="fbutton" value="F02">F02</button>
+                <button class="fbutton" value="F03">F03</button>
+            </div>
+            <div>
+                <form action="functions/vending.php" method="POST">
+                    <input type="submit" value="0.05" name="coin" />
+                    <input type="submit" value="0.10" name="coin" />
+                    <input type="submit" value="0.25" name="coin" />
+                    <input type="submit" value="1" name="coin" />
+                </form>
+            </div>
         </div>
     </div>
 </body>
