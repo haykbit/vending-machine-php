@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-include("../database/db.php");
-
 function updateStock($conn)
 {
     $sql = "UPDATE products SET stock=stock-1 WHERE selector='$_POST[selector]'";
@@ -30,13 +28,12 @@ function insertCoin($coin)
     file_put_contents('../utils/json/coins.json', $jsonData);
     $inp = file_get_contents('../utils/json/coins.json');
     $tempArray = json_decode($inp);
-    countCoins();
-    //header("Location: ../index.php");
+    header("Location: ../index.php");
 }
 
 function countCoins()
 {
-    $inp = file_get_contents('../utils/json/coins.json');
+    $inp = file_get_contents('utils/json/coins.json');
     $tempArray = json_decode($inp);
     var_dump(array_sum($tempArray));
 }

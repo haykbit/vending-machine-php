@@ -1,5 +1,6 @@
 <?php include("database/db.php")  ?>
 <?php include("functions/create-machine.php") ?>
+<?php include("functions/vending.php") ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,23 +16,24 @@
 <body>
     <div class="container">
         <div class="product-container">
+            <?php echo build_table($array); ?>
             <form action="functions/vending.php" method="POST">
-                <?php echo build_table($array); ?>
                 <input type="text" name="selector" id="selector-input" readonly />
                 <button type="submit" value="Buy" name="buy_product">Buy</button>
             </form>
-            <div>
+            <div class="f-buttons">
                 <button class="fbutton" value="F01">F01</button>
                 <button class="fbutton" value="F02">F02</button>
                 <button class="fbutton" value="F03">F03</button>
             </div>
-            <div>
+            <div class="coin-buttons">
                 <form action="functions/vending.php" method="POST">
                     <input type="submit" value="0.05" name="coin" />
                     <input type="submit" value="0.10" name="coin" />
                     <input type="submit" value="0.25" name="coin" />
                     <input type="submit" value="1" name="coin" />
                 </form>
+                <h3><?php countCoins() ?></h3>
             </div>
         </div>
     </div>

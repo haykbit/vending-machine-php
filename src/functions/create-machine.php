@@ -1,23 +1,23 @@
 <?php
 function build_table($array)
 {
-    $html = '<table>';
-    $html .= '<tr>';
-    foreach ($array[0] as $key => $value) {
-        $html .= '<th>' . htmlspecialchars($key) . '</th>';
-    }
-    $html .= '</tr>';
-
+    $count = 0;
     foreach ($array as $key => $value) {
-        $html .= '<tr>';
-        foreach ($value as $key2 => $value2) {
-            $html .= '<td>' . htmlspecialchars($value2) . '</td>';
+        echo '
+                <div class="product-item">
+                    <div class="image">
+                        <img src="assets/product-' . $count . '.png " alt="" width="30px" height="30px"/>
+                    </div>';
+        foreach ($value as $key2) {
+            echo '
+                    <div class="product-info">';
+            echo $key2;
+            echo '
+                    </div>
+                </div>';
         }
-        $html .= '</tr>';
+        $count = $count + 1;
     }
-
-    $html .= '</table>';
-    return $html;
 }
 
 $array = array();
