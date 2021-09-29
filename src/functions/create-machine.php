@@ -1,21 +1,23 @@
 <?php
-function build_table($array)
+
+function createMachine($array)
 {
     $count = 0;
     foreach ($array as $key => $value) {
         echo '
                 <div class="product-item">
                     <div class="image">
-                        <img src="assets/product-' . $count . '.png " alt="" width="30px" height="30px"/>
+                        <img id="image-' . $count . '" src="assets/product-' . $count . '.png " alt="" width="30px" height="30px"/>
                     </div>';
-        foreach ($value as $key2) {
-            echo '
+        echo '
                     <div class="product-info">';
-            echo $key2;
-            echo '
-                    </div>
-                </div>';
+        foreach ($value as $key2 => $value) {
+            if (is_numeric($value)) echo '<h3>' . $value . ' €</h3>';
+            else echo '<h3>' . $value . ' €</h3>';
         }
+        echo '
+        </div>
+    </div>';
         $count = $count + 1;
     }
 }
