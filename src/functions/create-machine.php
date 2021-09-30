@@ -1,23 +1,31 @@
 <?php
-function build_table($array)
+
+function createMachine($array)
 {
-    $html = '<table>';
-    $html .= '<tr>';
-    foreach ($array[0] as $key => $value) {
-        $html .= '<th>' . htmlspecialchars($key) . '</th>';
-    }
-    $html .= '</tr>';
-
+    $count = 0;
     foreach ($array as $key => $value) {
-        $html .= '<tr>';
-        foreach ($value as $key2 => $value2) {
-            $html .= '<td>' . htmlspecialchars($value2) . '</td>';
+        echo '
+                <div class="product-item">
+                    <div class="image">
+                        <img id="image-' . $count . '" src="assets/product-' . $count . '.png " alt="" width="30px" height="30px"/>
+                    </div>';
+        echo '
+                    <div class="product-info">';
+        echo '<div class="section-info">';
+        foreach ($value as $key2 => $value) {
+            if (is_numeric($value)) {
+                if ($value == 1) {
+                    echo '<h3 id="price-text">' . $value . '.00 €</h3></div>';
+                } else {
+                    echo '<h3 id="price-text">' . $value . ' €</h3></div>';
+                }
+            } else echo '<h3 id="selector-text">' . $value . '</h3>';
         }
-        $html .= '</tr>';
+        echo '
+        </div>
+    </div>';
+        $count = $count + 1;
     }
-
-    $html .= '</table>';
-    return $html;
 }
 
 $array = array();

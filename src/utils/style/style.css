@@ -1,0 +1,261 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@200;400;500;600;700&display=swap");
+
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.root {
+  width: fit-content;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #46473e;
+  /* background-image: linear-gradient(315deg, #96c8fb 0%, #ddbdfc 74%); */
+  border-radius: 10px;
+  color: #fff;
+}
+
+.vending-container {
+  width: 100%;
+  height: 230px;
+  background-color: #46473e;
+  margin-top: 10px;
+  display: flex;
+  border-radius: 10px;
+  align-items: center;
+}
+
+.vending-door {
+  width: 750px;
+  height: 150px;
+  margin-left: 50px;
+  background-color: #171717;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.vending-door:active {
+  box-shadow: inset 0px -60px 16px -36px rgba(0, 0, 0, 0.75);
+}
+
+.product-container {
+  display: flex;
+  background-color: #171717;
+  border-radius: 10px;
+  margin: 50px;
+  width: 100%;
+  padding: 30px;
+}
+
+.product-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+  width: 150px;
+  background-color: #1c1c1c;
+  border-radius: 14px;
+  padding: 20px;
+}
+
+.product-info {
+  text-align: center;
+}
+
+.product-info h3 {
+  margin: 0;
+}
+
+.section-info {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#price-text {
+  margin-left: 5px;
+}
+
+#selector-text {
+  background-color: #212529;
+  padding: 10px;
+  border-radius: 7px;
+}
+
+#image-1 {
+  width: 150px;
+  height: 150px;
+}
+
+#image-0 {
+  width: 50px;
+  height: 150px;
+}
+
+#image-2 {
+  width: 180px;
+  height: 150px;
+}
+
+input {
+  padding: 15px;
+  border-radius: 5px;
+  border: 2px #ffffff solid;
+  margin-top: 10px;
+  margin: 3px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-container {
+  margin: 60px 60px 60px 10px;
+  height: 423px;
+}
+
+.select-buttons {
+  text-align: center;
+}
+
+.coin-buttons {
+  display: flex;
+}
+
+#selector-input {
+  font-size: 20px;
+}
+
+#coins-input {
+  margin-top: 40px;
+  font-size: 20px;
+}
+
+.button::before,
+.button::after {
+  position: absolute;
+  box-sizing: content-box;
+  width: 100%;
+  height: 100%;
+  content: "";
+  border-color: #212529;
+  border-style: solid;
+  border-width: 4px;
+}
+.button::before {
+  top: -4px;
+  left: 0;
+  border-right: 2px;
+  border-left: 2px;
+}
+
+.button::after {
+  top: 0;
+  left: -4px;
+  border-top: 2px;
+  border-bottom: 2px;
+}
+.button {
+  position: relative;
+  display: inline-block;
+  padding: 10px 12px;
+  margin: 4px;
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  color: #212529;
+  background-color: #fff;
+  box-shadow: inset -4px -4px #adafbc;
+}
+
+/*BUTTON SELECTOR*/
+.retro-primary {
+  font-size: 18px;
+  color: #fff;
+  background-color: #22251d;
+  box-shadow: inset -4px -4px #000000;
+}
+
+.retro-primary:active {
+  box-shadow: inset 4px 4px #171a14;
+}
+
+/*BUTTON COINS*/
+.retro-mix-primary {
+  font-size: 18px;
+  color: #fff;
+  background-color: #ffbb00;
+  box-shadow: inset -4px -4px 4px 0px #be7c00;
+}
+
+.retro-mix-primary:active {
+  box-shadow: inset 4px 4px 4px 0px #a87e00;
+}
+
+/*BUTTON BUY*/
+.retro-mix-secondary {
+  font-size: 18px;
+  color: #fff;
+  background-color: #92cc41;
+  box-shadow: inset -4px -4px 4px 0px #4aa52e;
+}
+
+.retro-mix-secondary:hover,
+.retro-mix-secondary:visited {
+  background-color: #76c442;
+  box-shadow: inset -6px -6px 4px 0px #4aa52e;
+}
+.retro-mix-secondary:active {
+  box-shadow: inset 4px 4px 4px 0px #4aa52e;
+}
+
+/*RESTART BUTTON*/
+.retro-mix-red {
+  font-size: 18px;
+  color: #fff;
+  background-color: #ff3434;
+  box-shadow: inset -4px -4px 4px 0px #a03c3c;
+}
+
+.retro-mix-red:hover,
+.retro-mix-red:visited {
+  background-color: #ff3434;
+  box-shadow: inset -6px -6px 4px 0px #b33232;
+}
+
+.retro-mix-red:active {
+  box-shadow: inset 4px 4px 4px 0px #922c2c;
+}
+
+.btn-mix-nb {
+  border: none;
+  border-radius: 10px;
+  border: 4px solid black;
+  box-sizing: content-box;
+}
+.btn-mix-nb::before,
+.btn-mix-nb::after {
+  content: none;
+}

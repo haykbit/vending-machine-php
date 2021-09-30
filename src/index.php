@@ -1,5 +1,8 @@
-<?php include("database/db.php")  ?>
-<?php include("functions/create-machine.php") ?>
+<?php
+session_start();
+include("database/db.php");
+include("functions/create-machine.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,30 +12,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="./utils/js/button-control.js"></script>
+    <link rel="stylesheet" href="utils/style/style.css">
     <title>Docker PHP</title>
 </head>
 
 <body>
-    <div class="container">
-        <div class="product-container">
-            <form action="functions/vending.php" method="POST">
-                <?php echo build_table($array); ?>
-                <input type="text" name="selector" id="selector-input" readonly />
-                <button type="submit" value="Buy" name="buy_product">Buy</button>
-            </form>
-            <div>
-                <button class="fbutton" value="F01">F01</button>
-                <button class="fbutton" value="F02">F02</button>
-                <button class="fbutton" value="F03">F03</button>
+    <div class="root">
+        <div class="container">
+            <div class="product-container">
+                <?php echo createMachine($array); ?>
             </div>
-            <div>
+            <div class="form-container">
                 <form action="functions/vending.php" method="POST">
-                    <input type="submit" value="0.05" name="coin" />
-                    <input type="submit" value="0.10" name="coin" />
-                    <input type="submit" value="0.25" name="coin" />
-                    <input type="submit" value="1" name="coin" />
+                    <input type="text" name="selector" id="selector-input" placeholder="Choose a drink" readonly />
+                    <div class="select-buttons">
+                        <input type="button" class="fbutton button btn-mix-nb retro-primary" value="F01" />
+                        <input type="button" class="fbutton button btn-mix-nb retro-primary" value="F02" />
+                        <input type="button" class="fbutton button btn-mix-nb retro-primary" value="F03" />
+                    </div>
+                    <input type="text" name="coins" id="coins-input" placeholder="0,00 €" readonly />
+                    <div class="coin-buttons">
+                        <input type="button" class="cbutton button btn-mix-nb retro-mix-primary" value="0.05 € " name="coin" />
+                        <input type="button" class="cbutton button btn-mix-nb retro-mix-primary" value="0.10 €" name=" coin" />
+                        <input type="button" class="cbutton button btn-mix-nb retro-mix-primary" value="0.25 €" name="coin" />
+                        <input type="button" class="cbutton button btn-mix-nb retro-mix-primary" value="1.00 €" name="coin" />
+                    </div>
+                    <button type="submit" value="Buy" name="buy_product" class="button btn-mix-nb retro-mix-secondary">Buy</button>
                 </form>
+                <button value="Cancel" name="restart" class="button btn-mix-nb retro-mix-red" id="restart">Cancel</button>
+                <h3><?php echo $_SESSION["error"];
+                    echo $_SESSION["errorStock"]; ?></h3>
             </div>
+        </div>
+        <div class="vending-container">
+            <?php
+            if ($_SESSION["succes"] == "F01") {
+                echo '<div class="vending-door" style="background-image: url(assets/door-water.png);">
+                </div>';
+            } else if ($_SESSION["succes"] == "F02") {
+                echo '<div class="vending-door" style="background-image: url(assets/door-juice.png);">
+                </div>';
+            } else if ($_SESSION["succes"] == "F03") {
+                echo '<div class="vending-door" style="background-image: url(assets/door-soda.png);">
+                </div>';
+            } else {
+                echo '<div class="vending-door">
+                </div>';
+            }
+            session_unset();
+            ?>
         </div>
     </div>
 </body>
