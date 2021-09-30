@@ -14,4 +14,14 @@ $(document).ready(function () {
     console.log(total.toFixed(2));
     $("#coins-input").val(total.toFixed(2));
   });
+
+  $(".vending-door").click(function () {
+    $(this).css("background-image", "url()");
+    $(this).css("background-color", "#171717");
+  });
+
+  $("#restart").click(function () {
+    $("#selector-input").val("");
+    $("#coins-input").val("");
+  });
 });

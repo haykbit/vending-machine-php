@@ -11,9 +11,15 @@ function createMachine($array)
                     </div>';
         echo '
                     <div class="product-info">';
+        echo '<div class="section-info">';
         foreach ($value as $key2 => $value) {
-            if (is_numeric($value)) echo '<h3>' . $value . ' €</h3>';
-            else echo '<h3>' . $value . ' €</h3>';
+            if (is_numeric($value)) {
+                if ($value == 1) {
+                    echo '<h3 id="price-text">' . $value . '.00 €</h3></div>';
+                } else {
+                    echo '<h3 id="price-text">' . $value . ' €</h3></div>';
+                }
+            } else echo '<h3 id="selector-text">' . $value . '</h3>';
         }
         echo '
         </div>
