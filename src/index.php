@@ -11,7 +11,7 @@ include("functions/create-machine.php");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script type="text/javascript" src="./utils/js/button-control.js"></script>
+    <script type="text/javascript" src="./utils/js/generalController.js"></script>
     <link rel="stylesheet" href="utils/style/style.css">
     <title>Docker PHP</title>
 </head>
@@ -24,11 +24,13 @@ include("functions/create-machine.php");
             </div>
             <div class="form-container">
                 <form action="functions/vending.php" method="POST">
-                    <input type="text" name="selector" id="selector-input" placeholder="Choose a drink" readonly />
-                    <div class="select-buttons">
-                        <input type="button" class="fbutton button btn-mix-nb retro-primary" value="F01" />
-                        <input type="button" class="fbutton button btn-mix-nb retro-primary" value="F02" />
-                        <input type="button" class="fbutton button btn-mix-nb retro-primary" value="F03" />
+                    <div class="selector-container">
+                        <input type="text" name="selector" id="selector-input" placeholder="Choose a drink" readonly />
+                        <div class="select-buttons">
+                            <input type="button" class="fbutton button btn-mix-nb retro-primary" value="F01" />
+                            <input type="button" class="fbutton button btn-mix-nb retro-primary" value="F02" />
+                            <input type="button" class="fbutton button btn-mix-nb retro-primary" value="F03" />
+                        </div>
                     </div>
                     <input type="text" name="coins" id="coins-input" placeholder="0,00 €" readonly />
                     <div class="coin-buttons">
@@ -61,6 +63,9 @@ include("functions/create-machine.php");
             }
             session_unset();
             ?>
+            <div class="change-container">
+
+            </div>
         </div>
     </div>
 </body>

@@ -33,6 +33,7 @@ body {
   background-color: #46473e;
   margin-top: 10px;
   display: flex;
+  justify-content: space-between;
   border-radius: 10px;
   align-items: center;
 }
@@ -46,11 +47,15 @@ body {
   background-size: cover;
   border-radius: 10px;
   cursor: pointer;
-  z-index: 1;
 }
 
-.vending-door:active {
-  box-shadow: inset 0px -60px 16px -36px rgba(0, 0, 0, 0.75);
+.change-container {
+  margin-right: 7%;
+  width: 30%;
+  height: 150px;
+  border-radius: 10px;
+  cursor: pointer;
+  background-color: #171717;
 }
 
 .product-container {
@@ -113,12 +118,13 @@ body {
   height: 150px;
 }
 
-input {
+input[type="text"] {
   padding: 15px;
   border-radius: 5px;
-  border: 2px #ffffff solid;
+  border: none;
+  background-color: rgb(255, 255, 255);
   margin-top: 10px;
-  margin: 3px;
+  margin: 7px;
   text-align: center;
 }
 
@@ -132,16 +138,21 @@ form {
   height: 423px;
 }
 
+.selector-container {
+  display: flex;
+  flex-direction: column;
+}
+
 .select-buttons {
   text-align: center;
 }
 
-.coin-buttons {
-  display: flex;
-}
-
 #selector-input {
   font-size: 20px;
+}
+
+.coin-buttons {
+  display: flex;
 }
 
 #coins-input {
@@ -192,6 +203,7 @@ form {
 
 /*BUTTON SELECTOR*/
 .retro-primary {
+  width: 50px;
   font-size: 18px;
   color: #fff;
   background-color: #22251d;
@@ -204,6 +216,7 @@ form {
 
 /*BUTTON COINS*/
 .retro-mix-primary {
+  width: 60px;
   font-size: 18px;
   color: #fff;
   background-color: #ffbb00;
@@ -234,6 +247,7 @@ form {
 /*RESTART BUTTON*/
 .retro-mix-red {
   font-size: 18px;
+  margin-top: 26px;
   color: #fff;
   background-color: #ff3434;
   box-shadow: inset -4px -4px 4px 0px #a03c3c;
