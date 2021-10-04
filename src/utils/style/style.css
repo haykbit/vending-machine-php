@@ -97,6 +97,10 @@ body {
   margin-left: 5px;
 }
 
+#change-text {
+  color: #fff;
+}
+
 #selector-text {
   background-color: #212529;
   padding: 10px;
@@ -126,6 +130,10 @@ input[type="text"] {
   margin-top: 10px;
   margin: 7px;
   text-align: center;
+}
+
+input[type="text"]:focus {
+  outline: none;
 }
 
 form {

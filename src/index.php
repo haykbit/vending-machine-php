@@ -13,7 +13,8 @@ include("functions/create-machine.php");
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script type="text/javascript" src="./utils/js/generalController.js"></script>
     <link rel="stylesheet" href="utils/style/style.css">
-    <title>Docker PHP</title>
+    <link rel="icon" type="image/png" href="assets/product-1.png" />
+    <title>Vending Machine</title>
 </head>
 
 <body>
@@ -39,7 +40,7 @@ include("functions/create-machine.php");
                         <input type="button" class="cbutton button btn-mix-nb retro-mix-primary" value="0.25 €" name="coin" />
                         <input type="button" class="cbutton button btn-mix-nb retro-mix-primary" value="1.00 €" name="coin" />
                     </div>
-                    <button type="submit" value="Buy" name="buy_product" class="button btn-mix-nb retro-mix-secondary">Buy</button>
+                    <button type="submit" value="Buy" name="buy_product" class="button btn-mix-nb retro-mix-secondary" id="buy-button">Buy</button>
                 </form>
                 <button value="Cancel" name="restart" class="button btn-mix-nb retro-mix-red" id="restart">Cancel</button>
                 <h3><?php echo $_SESSION["error"];
@@ -61,10 +62,10 @@ include("functions/create-machine.php");
                 echo '<div class="vending-door">
                 </div>';
             }
-            session_unset();
             ?>
             <div class="change-container">
-
+                <h3 id="change-text"><?php echo $_SESSION["change"] ?></h3>
+                <?php session_unset(); ?>
             </div>
         </div>
     </div>
