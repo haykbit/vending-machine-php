@@ -97,6 +97,13 @@ body {
   margin-left: 5px;
 }
 
+.change-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 40px;
+}
+
 #change-text {
   color: #fff;
 }

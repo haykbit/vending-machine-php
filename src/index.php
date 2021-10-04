@@ -64,8 +64,14 @@ include("functions/create-machine.php");
             }
             ?>
             <div class="change-container">
-                <h3 id="change-text"><?php echo $_SESSION["change"] ?></h3>
-                <?php session_unset(); ?>
+                <h3 id="change-text">
+                    <?php
+                    if ($_SESSION["change"]) {
+                        $result = number_format((float)$_SESSION["change"], 2, '.', '');
+                        echo $result . " €";
+                    }
+                    session_unset(); ?>
+                </h3>
             </div>
         </div>
     </div>
