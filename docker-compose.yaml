@@ -7,9 +7,10 @@ services:
     #working_dir: /application
     volumes:
       - ./docker/mysql/data:/var/lib/mysql
+      - ./db:/docker-entrypoint-initdb.d/
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=.sweetpwd.
+      - MYSQL_ROOT_PASSWORD=sweetpwd
       - MYSQL_DATABASE=vendingmachine
       - MYSQL_USER=user
       - MYSQL_PASSWORD=123456
