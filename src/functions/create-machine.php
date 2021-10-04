@@ -30,7 +30,7 @@ function createMachine($array)
 
 $array = array();
 
-$sql = "SELECT * FROM products";
+$sql = "SELECT * FROM product";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
