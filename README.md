@@ -2,7 +2,9 @@
 
 This is my solution to a vending machine using PHP and jQuery that runs in a Docker container.
 
-## Installation
+![Alt text](./src/assets/vending-machine.png)
+
+# Installation
 
 On root folder of the project run
 
@@ -10,7 +12,7 @@ On root folder of the project run
 docker compose up
 ```
 
-## FOlder structure
+# Folder structure
 
 ```php
 # ./
