@@ -22,7 +22,7 @@ services:
     build:
       context: ./
     volumes:
-      - /Users/haykbit/Desktop/Assembler/pruebas-tecnicas/vending-machine-php/src:/var/www/html
+      - ./src:/var/www/html
     ports:
       - 8000:80
     depends_on:
