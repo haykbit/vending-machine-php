@@ -28,7 +28,7 @@ Generated folder which container all the configuration for the mysql server and 
 Contains the project source files
 
 # src/assets
-Containes images
+Contains images
 
 # src/database
 db global conection
