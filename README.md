@@ -41,7 +41,7 @@ Contains js and style files
 ```
 ## Missing functionality
 ```
-- Give change in the available coins 
+- Give change in the available coins. 
 - A service person opens the machine and set the available change and how many items we have.
 ```
 
